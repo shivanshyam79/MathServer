@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cylinder Surface Area Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: black;
+    }
+    #calculator {
+        text-align: center;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    form {
+        margin-bottom: 20px;
+    }
+    .input-container {
+        margin-bottom: 10px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type="number"] {
+        width: 100px;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    #result {
+        font-size: 18px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div id="calculator">
+    <h2>Cylinder Surface Area Calculator</h2>
+    <h3>Shyam R(212223040200)</h3>
+    <form id="cylinderForm">
+        <div class="input-container">
+            <label for="radius">Radius:</label>
+            <input type="number" id="radius" required>
+        </div>
+        <div class="input-container">
+            <label for="height">Height:</label>
+            <input type="number" id="height" required>
+        </div>
+        <button type="submit">Calculate</button>
+    </form>
+
+    <div id="result">Surface Area: <span id="surfaceArea"></span></div>
+</div>
+
+<script>
+document.getElementById("cylinderForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    var radius = parseFloat(document.getElementById("radius").value);
+    var height = parseFloat(document.getElementById("height").value);
+    var surfaceArea = 2 * Math.PI * radius * (radius + height);
+    document.getElementById("surfaceArea").innerText = surfaceArea.toFixed(2);
+});
+</script>
+
+</body>
+</html>
